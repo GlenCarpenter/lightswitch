@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LightSwitch</title>
+  </head>
+  <body style="height: 100vh; margin: 0px">
+    <script>
+      var storage = window.localStorage;
+      function toggleColors() {
+        storage.getItem("color") === "#202124"
+          ? storage.setItem("color", "#fff")
+          : storage.setItem("color", "#202124");
+        document.body.style.backgroundColor = storage.getItem("color");
+      }
+
+      toggleColors();
+      document.body.addEventListener("click", toggleColors);
+    </script>
+  </body>
+</html>
