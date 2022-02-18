@@ -12,11 +12,15 @@
   <body style="height: 100vh; margin: 0px; background-color: #202124; transition: background-color 1s ease-out;">
     <script>
       var lightColor = "#202124";
-      function setAttrs(color, favicon) {
-        var link = document.getElementById("icon");
+      var favicon = "data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAODg4ALW1tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASIhAAAAAAAAAAEAAAAAAAEiIQAAAAAAAAABAAAAAAABIiEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA/H8AAPg/AAD4PwAA+D8AAPg/AAD4PwAA+D8AAPffAADv7wAA7+8AAO/vAADv7wAA7+8AAPffAAD4PwAA";
+      
+      // Update variables to light or dark theme
+      function setAttrs(color, icon) {
         lightColor = color;
-        link.setAttribute("href", favicon);
+        favicon = icon;
       }
+      
+      // Toggle background and favicon
       function toggleColors() {
         lightColor === "#202124"
           ? setAttrs(
@@ -27,9 +31,13 @@
               "#202124",
               "data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAODg4ALW1tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASIhAAAAAAAAAAEAAAAAAAEiIQAAAAAAAAABAAAAAAABIiEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA/H8AAPg/AAD4PwAA+D8AAPg/AAD4PwAA+D8AAPffAADv7wAA7+8AAO/vAADv7wAA7+8AAPffAAD4PwAA"
             );
+        
+        var link = document.getElementById("icon");
+        link.setAttribute("href", favicon);
         document.body.style.backgroundColor = lightColor;
       }
 
+      // Toggle colors on click
       document.body.addEventListener("click", toggleColors);
     </script>
   </body>
